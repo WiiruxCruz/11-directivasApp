@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "directivasApp"
+    }
+  },
+  "defaultProject": "directivasApp",
+  "cli": {
+    "analytics": "41cbe4e3-16eb-4f18-b45c-15c8940b8b3f"
+  }
 }
