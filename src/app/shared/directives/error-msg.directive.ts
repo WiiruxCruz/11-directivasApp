@@ -11,14 +11,16 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
 	htmlElement: ElementRef<HTMLElement>;
 	//@Input() color: string = 'red';
 	@Input() set color( valor: string ) {
-		this.htmlElement.nativeElement.style.color = valor;
+		//this.htmlElement.nativeElement.style.color = valor;
 		this._color = valor;
+		this.setColor();
 	}
 	//@Input() mensaje: string = 'Este campo es necesario';
 	@Input() set mensaje( valor: string ) {
 		//console.log( valor );
 		this._mensaje = valor;
-		this.htmlElement.nativeElement.innerText = valor;
+		//this.htmlElement.nativeElement.innerText = valor;
+		this.setMensaje();
 	}
 
 	constructor( private el: ElementRef<HTMLElement> ) {
@@ -49,23 +51,23 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
 		console.log('NgOnInit en la directiva');
 		//console.log(this.color); //undefinied
 		//console.log(this.mensaje); //undefinied
-		//this.setColor();
-		//this.setMensaje();
+		this.setEstilo();
+		this.setColor();
+		this.setMensaje();
 	}
 
 	setEstilo(): void {
 		this.htmlElement.nativeElement.classList.add('form-text');
 	}
 
-	/*
+
 	setColor(): void {
-		this.htmlElement.nativeElement.style.color = this.color;
-		this.htmlElement.nativeElement.classList.add('form-text');
+		this.htmlElement.nativeElement.style.color = this._color;
 	}
 
 	setMensaje(): void {
-		this.htmlElement.nativeElement.innerText = this.mensaje;
+		this.htmlElement.nativeElement.innerText = this._mensaje;
 	}
-	*/
+
 
 }
